@@ -1,20 +1,39 @@
 package wiki.scene.aoptest
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import butterknife.ButterKnife
 import butterknife.OnClick
 import butterknife.Unbinder
+import com.chad.library.adapter.base.BaseQuickAdapter.OnItemClickListener
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
-    var unbinder: Unbinder? = null;
+    var unbinder: Unbinder? = null
+    var mAdapter: ItemAdapter? = null
+    private var mList = ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         unbinder = ButterKnife.bind(this)
-//        btn.setOnClickListener { Log.e("xx", "点击事件") }
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        for (i in 1..20) {
+            mList.add("数据:$i")
+        }
+        mAdapter = ItemAdapter(mList)
+        recyclerView.adapter = mAdapter
+        mAdapter!!.onItemClickListener = OnItemClickListener { _, _, position ->
+            run {
+                //点击事件
+                Log.e("提示", mList[position])
+            }
+        }
     }
 
     @OnClick(R.id.btn)
