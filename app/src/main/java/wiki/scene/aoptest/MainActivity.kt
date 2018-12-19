@@ -3,7 +3,6 @@ package wiki.scene.aoptest
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import butterknife.ButterKnife
@@ -11,7 +10,6 @@ import butterknife.OnClick
 import butterknife.Unbinder
 import com.chad.library.adapter.base.BaseQuickAdapter.OnItemClickListener
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     var unbinder: Unbinder? = null
