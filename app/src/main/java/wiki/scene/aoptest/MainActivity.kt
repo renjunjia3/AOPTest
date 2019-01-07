@@ -2,7 +2,6 @@ package wiki.scene.aoptest
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import butterknife.ButterKnife
@@ -35,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @OnClick(R.id.btn)
-    fun OnClickBtn(view: View) {
+    fun OnClickBtn() {
         Log.e("xx", "点击事件")
     }
 
@@ -45,7 +44,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        //
         Log.e("xx", "onBackPressed")
     }
 
@@ -53,4 +51,5 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         unbinder!!.unbind()
     }
+
 }

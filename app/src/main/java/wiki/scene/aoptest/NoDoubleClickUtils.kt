@@ -2,7 +2,7 @@ package wiki.scene.aoptest
 
 object NoDoubleClickUtils {
     private var lastClickTime: Long = 0
-    private val SPACE_TIME = 1000
+    private val SPACE_TIME = 500
 
     val isDoubleClick: Boolean
         @Synchronized get() {
